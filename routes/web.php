@@ -11,6 +11,16 @@
 |
 */
 
+use App\Events\EventTrigger;
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/listenToBroadcast', function () {
+    return view('eventListener');
+});
+
+Route::get('/broadcast', function () {
+    event(new EventTrigger());
 });

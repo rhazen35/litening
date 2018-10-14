@@ -18,5 +18,11 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    created() {
+        Echo.channel('channel-litening')
+            .listen('EventTrigger', (e) => {
+                alert('event triggered succesfully!');
+            });
+    }
 });
