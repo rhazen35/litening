@@ -13908,8 +13908,8 @@ Vue.component('example-component', __webpack_require__(41));
 var app = new Vue({
     el: '#app',
     created: function created() {
-        window.Echo.private('channel-litening').listen('EventTrigger', function (e) {
-            console.log('event triggered succesfully!');
+        window.Echo.channel('channel-litening').listen('EventTrigger', function (e) {
+            alert('event triggered succesfully!');
         });
     }
 });

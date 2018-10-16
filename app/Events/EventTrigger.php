@@ -31,6 +31,6 @@ class EventTrigger implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('channel-litening');
+        return new Channel('channel-litening');
     }
 }

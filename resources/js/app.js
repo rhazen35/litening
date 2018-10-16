@@ -20,9 +20,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app',
     created() {
-        window.Echo.private('channel-litening')
+        window.Echo.channel('channel-litening')
             .listen('EventTrigger', (e) => {
-                console.log('event triggered succesfully!');
+                alert('event triggered succesfully!');
             });
     }
 });
