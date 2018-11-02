@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// ->middleware('auth')
+
 Route::get('/listenToBroadcast', function () {
     return view('eventListener');
 });
@@ -24,3 +26,7 @@ Route::get('/listenToBroadcast', function () {
 Route::get('/broadcast', function () {
     event(new EventTrigger());
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
