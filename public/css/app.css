@@ -10466,6 +10466,65 @@ a.text-dark:focus {
   }
 }
 
+header {
+  padding: 1rem;
+  border-bottom: 1px solid #38c172;
+}
+
+header .page-title {
+  font-weight: 900;
+  font-size: 125%;
+}
+
+header .page-subtitle {
+  font-weight: 700;
+  font-size: 90%;
+}
+
+main {
+  padding: 1rem;
+}
+
+main .main-title {
+  color: #38c172;
+  font-weight: 900;
+  font-size: 150%;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+main .main-infotext {
+  width: 50%;
+  margin: 1rem auto;
+}
+
+main .main-infotext p {
+  text-align: center;
+}
+
+main .main-portrait-img {
+  width: 15rem;
+  height: 15rem;
+  margin: 2rem auto;
+}
+
+main .main-portrait-img img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+}
+
+main .main-img {
+  width: 15rem;
+  height: 15rem;
+  margin: 2rem auto;
+}
+
+main .main-img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
