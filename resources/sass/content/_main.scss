@@ -1,27 +1,44 @@
-main {
-    padding:1rem;
+.main {
+    display:grid;
+    grid-template-columns: 20% 30% 30% 20%;
+    grid-gap: 2rem;
 
-    .main-title {
-        color: $green;
+    .title {
+        color: $black;
+        font-family: 'Poppins', sans-serif;
         font-weight:900;
         font-size:150%;
         text-transform: uppercase;
         text-align: center;
     }
     
-    .main-infotext {
-        width:50%;
-        margin: 1rem auto;
+    .text {
 
         p {
-            text-align: center;
+            margin-top:1rem;
+            text-align: left;
+            font-family: 'Questrial', sans-serif;
+            font-size:120%;
+            font-weight:500;
         }
     }
+
+    .intro {
+        grid-column: 3/4;
+        grid-row: 1;
+        padding:1rem 3rem;
+        background: $teal;
+        box-shadow: -2px 2px 3px 0px rgba(123, 209, 200,1);
+    }
     
-    .main-portrait-img {
-        width:15rem;
-        height:15rem;
-        margin: 2rem auto;
+    .intro-image {
+        grid-column: 2/3;
+        grid-row: 1;
+        padding:3rem 1rem;
+        text-align:center;
+        border-right: 1px solid $lightgrey;
+        border-bottom: 1px solid $lightgrey;
+        box-shadow: 2px 2px 3px 0px rgba(229,230,230,1);
     
         img {
             max-width:100%;
@@ -30,10 +47,22 @@ main {
         }
     }
 
-    .main-img {
-        width:15rem;
-        height:15rem;
-        margin: 2rem auto;
+    .content {
+        grid-column: 2/3;
+        grid-row: 2;
+        padding:1rem 3rem;
+        background: $cyan;
+        box-shadow: 2px -2px 3px 0px rgba(143, 196, 240,1);
+    }
+
+    .content-image {
+        grid-column: 3/4;
+        grid-row: 2;
+        padding:3rem 1rem;
+        text-align:center;
+        border-top: 1px solid $lightgrey;
+        border-left: 1px solid $lightgrey;
+        box-shadow: -2px -2px 3px 0px rgba(229,230,230,1);
     
         img {
             max-width:100%;

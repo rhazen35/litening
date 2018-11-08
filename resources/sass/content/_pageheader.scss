@@ -1,6 +1,7 @@
-header {
-    padding:1rem;
-    border-bottom: 1px solid $green;
+.header {
+    color: $white;
+    background: $blueberry;
+    border-bottom: 1px solid $blueberry;
 
     .page-title
     {
