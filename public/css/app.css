@@ -10467,17 +10467,36 @@ a.text-dark:focus {
 }
 
 .header {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   color: #ffffff;
   background: #2855D6;
   border-bottom: 1px solid #2855D6;
 }
 
+.header .page-icon {
+  grid-column: 1/1;
+  grid-row: 1;
+  padding: 0.5rem;
+}
+
+.header .page-icon i {
+  font-weight: 900;
+  font-size: 250%;
+}
+
 .header .page-title {
+  grid-column: 3/5;
+  grid-row: 1;
+  text-align: center;
+}
+
+.header .page-title .title {
   font-weight: 900;
   font-size: 125%;
 }
 
-.header .page-subtitle {
+.header .page-title .subtitle {
   font-weight: 700;
   font-size: 90%;
 }

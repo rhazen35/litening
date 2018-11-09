@@ -22,8 +22,13 @@
         <div class="grid">
         
             <div class="header">
-                <div class="page-title">{{ config('app.name') }} Web Solutions</div>
-                <div class="page-subtitle">There are no problems, only opportunities.</div>
+
+                <div class="page-icon"><i class="fas fa-bolt"></i></div>
+
+                <div class="page-title">
+                    <div class="title">{{ config('app.name') }} Web Solutions</div>
+                    <div class="subtitle">There are no problems, only opportunities.</div>
+                </div>
             </div>
 
             <div class="menu-link">

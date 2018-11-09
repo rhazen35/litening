@@ -1,17 +1,35 @@
 .header {
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
     color: $white;
     background: $blueberry;
     border-bottom: 1px solid $blueberry;
 
-    .page-title
-    {
-        font-weight:900;
-        font-size:125%;
+    .page-icon {
+        grid-column: 1/1;
+        grid-row: 1;
+        padding:0.5rem;
     }
 
-    .page-subtitle
-    {
-        font-weight:700;
-        font-size:90%;
+    .page-icon i {
+        font-weight:900;
+        font-size:250%;
+    }
+
+    .page-title {
+        grid-column: 3/5;
+        grid-row: 1;
+        text-align:center;
+
+        .title {
+            font-weight:900;
+            font-size:125%;
+        }
+
+        .subtitle {
+            font-weight:700;
+            font-size:90%;
+        }
+  
     }
 }
