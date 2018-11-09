@@ -9,6 +9,9 @@
         <!-- Stylesheets -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Poppins|Questrial|Raleway" rel="stylesheet">
@@ -23,31 +26,55 @@
                 <div class="page-subtitle">There are no problems, only opportunities.</div>
             </div>
 
+            <div class="menu-link">
+                <div class="menu-icon" id="menu-icon" title="Open the menu." onclick="toggle()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
             <div class="main">
 
-                <div class="intro">
-                    <div class="title">I build effective web solutions to support your growth.</div>
+                <div class="developer">
+                    <div class="title">The Developer.</div>
                     <div class="text">
                         <p>
-                            SEO, UX/UI, Responsive and Fast. You can expect cooperative collaboration.
-                            I encourage you to be critical about what is build for you.
+                            Ruben Hazenbosch, 32 years, Web/Software Developer.
                             <br><br>
-                            From an informative, purposeful website to a complex webshop or web suite. 
-                            <br><br>
-                            All possibilities are open.
+                            Born in Haarlem, Netherlands. 
+                            <br>
+                            Living in Holzdorf, Germany.
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="developer-image">
+                    <img src="{{ asset('img/ruben-hazenbosch.jpg') }}">
+                </div>
+
+                <div class="intro">
+                    <div class="title">What I work with.</div>
+                    <div class="text">
+                        <p>
+
+                            PHP 7.2, Javascript, ECMAScript 6 Modules, Ajax. CSS3, SASS and much, much more!
                         </p>
                     </div>
                 </div>
 
                 <div class="intro-image">
-                    <img src="{{ asset('img/ruben-hazenbosch.jpg') }}">
+                    <img src="{{ asset('img/web-developer.jpg') }}">
                 </div>
 
                 <div class="content">
-                    <div class="title">I use the powerful Laravel Framework and the latest technologies.</div>
+                    <div class="title">I use the Laravel Framework.</div>
                     <div class="text">
                         <p>
-                            PHP 7.2, Javascript, ECMAScript 6 Modules, Ajax. CSS3, SASS and much, much more!
+                            Fast, reliable and scalable development with automated Unit Testing.
+                            <br><br>
+                            Easy integration, secure authentication and wide support.
                         </p>
                     </div>
                 </div>
@@ -58,5 +85,14 @@
 
             </div>
         </div>
+
+        <script type="text/javascript">
+            function toggle() {
+                var element = document.getElementById("menu-icon");
+                element.classList.toggle("open");
+                element.title = "Close the menu." === element.title ? "Open the menu." : "Close the menu.";
+            }
+        </script>
+
     </body>
 </html>
