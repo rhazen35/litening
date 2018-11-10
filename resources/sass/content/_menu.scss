@@ -1,13 +1,25 @@
+.menu {
+    position:fixed;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 1rem;
+    width:45rem;
+    top:6rem;
+    right: -30rem;
+}
+
 .menu-link {
+    grid-column: 1;
+    grid-row: 1; 
     width:100%;
 }
 
 .menu-icon {
     float:right;
     position: relative;
-    margin-right: 2rem;
     width: 45px;
     height: 30px;
+    margin-right:2rem;
     transform: rotate(0deg);
     transition: .5s ease-in-out;
     cursor: pointer;
@@ -66,4 +78,46 @@
 .menu-icon.open span:nth-child(3) {
     top: 14px;
     transform: rotate(-135deg);
+}
+
+.menu-items {
+    grid-column: 3;
+    grid-row: 3;
+    display:grid;
+    grid-template-columns: 100%;
+
+    .menu-item {
+        display: grid;
+        grid-template-columns: 25% 75%;
+        padding: 0.5rem 1rem;
+        color: $white;
+        text-transform: uppercase;
+        background: $blueberry;
+        transition: all .2s ease-in-out;
+        
+        &:not(:last-child) {
+            border-bottom: 1px solid $white;
+        }
+        
+        &:hover {
+            cursor: pointer;
+            color: $blueberry;
+            background: $white;
+        }
+
+        .icon {
+            font-size:125%;
+            text-align:left;
+        }
+    
+        .text {
+            padding-top: 0.25rem;
+            text-align:right;
+        }
+    }
+
+    .active {
+        color: $blueberry;
+        background: $white;
+    }
 }

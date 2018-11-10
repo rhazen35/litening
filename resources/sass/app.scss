@@ -8,6 +8,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Animations
+@import 'animations/cubic_bezier';
+
 // Content
 @import 'content/pageheader';
 @import 'content/main';

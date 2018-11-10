@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <!-- Title -->
         <title>{{ config('app.name') }}</title>
 
         <!-- Stylesheets -->
@@ -31,17 +34,43 @@
                 </div>
             </div>
 
-            <div class="menu-link">
-                <div class="menu-icon" id="menu-icon" title="Open the menu." onclick="toggle()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <div class="menu" id="menu">
+
+                <div class="menu-link" id="menu-link">
+                    <div class="menu-icon" id="menu-icon" v-on:click="toggleMenuLink" title="Open the menu.">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="menu-items" id="menu-items">
+                    <div class="menu-item active" id="menu-home" v-on:click="toggleActive">
+                        <div class="icon"><i class="fas fa-home"></i></div>
+                        <div class="text">Home</div>
+                    </div>
+                    <div class="menu-item" id="menu-about" v-on:click="toggleActive">
+                        <div class="icon"><i class="fas fa-user-circle"></i></div>
+                        <div class="text">About Me</div>
+                    </div>
+                    <div class="menu-item" id="menu-work" v-on:click="toggleActive">
+                        <div class="icon"><i class="fas fa-briefcase"></i></div>
+                        <div class="text">My Work</div>
+                    </div>
+                    <div class="menu-item" id="menu-qualities" v-on:click="toggleActive">
+                        <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+                        <div class="text">Qualities</div>
+                    </div>
+                    <div class="menu-item" id="menu-contact" v-on:click="toggleActive">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div class="text">Contact</div>
+                    </div>
                 </div>
             </div>
 
             <div class="main">
 
-                <div class="developer">
+                <div class="developer animate-right-cubic-slow">
                     <div class="title">The Developer.</div>
                     <div class="text">
                         <p>
@@ -55,11 +84,11 @@
                     </div>
                 </div>
 
-                <div class="developer-image">
+                <div class="developer-image animate-right-cubic-fast">
                     <img src="{{ asset('img/ruben-hazenbosch.jpg') }}">
                 </div>
 
-                <div class="intro">
+                <div class="intro animate-left-cubic-slow">
                     <div class="title">What I work with.</div>
                     <div class="text">
                         <p>
@@ -69,11 +98,11 @@
                     </div>
                 </div>
 
-                <div class="intro-image">
+                <div class="intro-image animate-left-cubic-fast">
                     <img src="{{ asset('img/web-developer.jpg') }}">
                 </div>
 
-                <div class="content">
+                <div class="content animate-right-cubic-slow">
                     <div class="title">I use the Laravel Framework.</div>
                     <div class="text">
                         <p>
@@ -84,20 +113,14 @@
                     </div>
                 </div>
 
-                <div class="content-image">
+                <div class="content-image animate-right-cubic-fast">
                     <img src="{{ asset('img/laravel.png') }}">
                 </div>
 
             </div>
         </div>
 
-        <script type="text/javascript">
-            function toggle() {
-                var element = document.getElementById("menu-icon");
-                element.classList.toggle("open");
-                element.title = "Close the menu." === element.title ? "Open the menu." : "Close the menu.";
-            }
-        </script>
-
+        <!-- Scripts -->
+        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

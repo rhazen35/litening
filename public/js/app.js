@@ -13895,6 +13895,9 @@ module.exports = __webpack_require__(45);
 
 __webpack_require__(13);
 
+// Content
+__webpack_require__(50);
+
 window.Vue = __webpack_require__(38);
 
 /**
@@ -57206,6 +57209,53 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+
+
+var menu = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
+    el: '#menu',
+    data: {
+        isActive: false
+    },
+    methods: {
+        toggleMenuLink: function toggleMenuLink(event) {
+            var icon = document.getElementById("menu-icon");
+            var menuItems = document.getElementById("menu-items");
+
+            icon.classList.toggle("open");
+            icon.title = "Close the menu." === icon.title ? "Open the menu." : "Close the menu.";
+
+            menuItems.classList.toggle("animate-left-cubic");
+            menuItems.style.gridColumn = menuItems.style.gridColumn === "1 / auto" ? "3 / auto" : "1 / auto";
+        },
+
+        toggleActive: function toggleActive(event) {
+
+            var items = document.getElementsByClassName('menu-item');
+
+            for (var i = 0; i < items.length; i++) {
+
+                if (items[i].classList.contains('active')) {
+                    items[i].classList.remove('active');
+                }
+            }
+
+            event.target.parentElement.classList.add('active');
+        }
+    }
+});
 
 /***/ })
 /******/ ]);
