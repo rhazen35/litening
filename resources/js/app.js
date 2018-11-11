@@ -1,16 +1,15 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
 require('./bootstrap');
 
-// Content
-require('./content/menu');
-
 window.Vue = require('vue');
+
+// Content
+require('./content/menu/menuModule');
+require('./content/menu/menuVueInstance');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -20,7 +19,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-const app = new Vue({
+/* var app = new Vue({
     el: '#app',
     created() {
         window.Echo.channel('channel-litening')
@@ -28,4 +27,4 @@ const app = new Vue({
                 alert('event triggered succesfully!');
             });
     }
-});
+}); */

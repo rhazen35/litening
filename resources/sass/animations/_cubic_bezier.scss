@@ -1,3 +1,7 @@
+.animate-left-cubic-superfast {
+    animation: .2s leftCubic cubic-bezier(.86,0,.07,1) 0.2s both;
+}
+
 .animate-left-cubic-fast {
     animation: .3s leftCubic cubic-bezier(.86,0,.07,1) 0.2s both;
 }

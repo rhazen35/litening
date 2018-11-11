@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,7 +71,7 @@
 
 
 var bind = __webpack_require__(5);
-var isBuffer = __webpack_require__(19);
+var isBuffer = __webpack_require__(20);
 
 /*global toString:true*/
 
@@ -408,7 +408,7 @@ module.exports = g;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(21);
+var normalizeHeaderName = __webpack_require__(22);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -13632,12 +13632,12 @@ process.umask = function() { return 0; };
 
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(22);
-var buildURL = __webpack_require__(24);
-var parseHeaders = __webpack_require__(25);
-var isURLSameOrigin = __webpack_require__(26);
+var settle = __webpack_require__(23);
+var buildURL = __webpack_require__(25);
+var parseHeaders = __webpack_require__(26);
+var isURLSameOrigin = __webpack_require__(27);
 var createError = __webpack_require__(8);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(27);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(28);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -13734,7 +13734,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(28);
+      var cookies = __webpack_require__(29);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -13818,7 +13818,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(23);
+var enhanceError = __webpack_require__(24);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -13876,29 +13876,108 @@ module.exports = Cancel;
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-__webpack_require__(12);
-module.exports = __webpack_require__(45);
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_requests_ajax__ = __webpack_require__(52);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
+
+/**
+ * Menu Module.
+ */
+
+var Menu = function () {
+    function Menu() {
+        _classCallCheck(this, Menu);
+
+        this.ajax = new __WEBPACK_IMPORTED_MODULE_0__modules_requests_ajax__["a" /* default */]();
+    }
+
+    // Toggle the menu link, opening/closing the menu.
+
+
+    _createClass(Menu, [{
+        key: "toggleMenuLink",
+        value: function toggleMenuLink() {
+
+            var icon = document.getElementById("menu-icon");
+            var menuItems = document.getElementById("menu-items");
+
+            icon.classList.toggle("open");
+            icon.title = "Close the menu." === icon.title ? "Open the menu." : "Close the menu.";
+
+            menuItems.classList.toggle("animate-left-cubic-superfast");
+            menuItems.style.gridColumn = menuItems.style.gridColumn === "1 / auto" ? "3 / auto" : "1 / auto";
+        }
+
+        // Toggle the menu activa state, changing the appearance of the menu item.
+
+    }, {
+        key: "toggleActive",
+        value: function toggleActive(event) {
+
+            var items = document.getElementsByClassName('menu-item');
+
+            for (var i = 0; i < items.length; i++) {
+
+                if (items[i].classList.contains('active')) {
+                    items[i].classList.remove('active');
+                }
+            }
+
+            event.target.parentElement.classList.add('active');
+        }
+    }, {
+        key: "page",
+        value: function page(_page) {
+
+            var url = '/' + _page;
+
+            axios.get(url).then(function (response) {
+                document.getElementById('app').innerHTML = response.data;
+
+                history.pushState(null, null, url);
+                history.replaceState(null, null, url);
+            }).catch(function (error) {
+                console.log(error);
+            }).then(function () {});
+        }
+    }]);
+
+    return Menu;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Menu);
 
 /***/ }),
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(13);
+module.exports = __webpack_require__(47);
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
 
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+__webpack_require__(14);
 
-__webpack_require__(13);
+window.Vue = __webpack_require__(39);
 
 // Content
-__webpack_require__(50);
-
-window.Vue = __webpack_require__(38);
+__webpack_require__(11);
+__webpack_require__(42);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -13906,27 +13985,28 @@ window.Vue = __webpack_require__(38);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(41));
+Vue.component('example-component', __webpack_require__(43));
 
-var app = new Vue({
+/* var app = new Vue({
     el: '#app',
-    created: function created() {
-        window.Echo.channel('channel-litening').listen('EventTrigger', function (e) {
-            alert('event triggered succesfully!');
-        });
+    created() {
+        window.Echo.channel('channel-litening')
+            .listen('EventTrigger', (e) => {
+                alert('event triggered succesfully!');
+            });
     }
-});
+}); */
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_echo__);
 
-window._ = __webpack_require__(14);
+window._ = __webpack_require__(15);
 window.Popper = __webpack_require__(3).default;
 
 /**
@@ -13938,7 +14018,7 @@ window.Popper = __webpack_require__(3).default;
 try {
   window.$ = window.jQuery = __webpack_require__(4);
 
-  __webpack_require__(16);
+  __webpack_require__(17);
 } catch (e) {}
 
 /**
@@ -13947,7 +14027,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(17);
+window.axios = __webpack_require__(18);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -13973,7 +14053,7 @@ if (token) {
 
 
 
-window.Pusher = __webpack_require__(37);
+window.Pusher = __webpack_require__(38);
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   broadcaster: 'pusher',
@@ -13983,7 +14063,7 @@ window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
 });
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -31095,10 +31175,10 @@ window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(15)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(16)(module)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -31126,7 +31206,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -35076,13 +35156,13 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(18);
+module.exports = __webpack_require__(19);
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35090,7 +35170,7 @@ module.exports = __webpack_require__(18);
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(5);
-var Axios = __webpack_require__(20);
+var Axios = __webpack_require__(21);
 var defaults = __webpack_require__(2);
 
 /**
@@ -35125,14 +35205,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(10);
-axios.CancelToken = __webpack_require__(34);
+axios.CancelToken = __webpack_require__(35);
 axios.isCancel = __webpack_require__(9);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(35);
+axios.spread = __webpack_require__(36);
 
 module.exports = axios;
 
@@ -35141,7 +35221,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 /*!
@@ -35168,7 +35248,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35176,8 +35256,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(2);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(29);
-var dispatchRequest = __webpack_require__(30);
+var InterceptorManager = __webpack_require__(30);
+var dispatchRequest = __webpack_require__(31);
 
 /**
  * Create a new instance of Axios
@@ -35254,7 +35334,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35273,7 +35353,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35306,7 +35386,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35334,7 +35414,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35407,7 +35487,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35467,7 +35547,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35542,7 +35622,7 @@ module.exports = (
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35585,7 +35665,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35645,7 +35725,7 @@ module.exports = (
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35704,18 +35784,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(31);
+var transformData = __webpack_require__(32);
 var isCancel = __webpack_require__(9);
 var defaults = __webpack_require__(2);
-var isAbsoluteURL = __webpack_require__(32);
-var combineURLs = __webpack_require__(33);
+var isAbsoluteURL = __webpack_require__(33);
+var combineURLs = __webpack_require__(34);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -35797,7 +35877,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35824,7 +35904,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35845,7 +35925,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35866,7 +35946,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35930,7 +36010,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35964,7 +36044,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports) {
 
 var asyncGenerator = function () {
@@ -36902,7 +36982,7 @@ var Echo = function () {
 module.exports = Echo;
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -45748,7 +45828,7 @@ return /******/ (function(modules) { // webpackBootstrap
 ;
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56711,10 +56791,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(39).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(40).setImmediate))
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -56770,7 +56850,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(40);
+__webpack_require__(41);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -56784,7 +56864,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -56977,15 +57057,46 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
 
 /***/ }),
-/* 41 */
+/* 42 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__menuModule__ = __webpack_require__(11);
+
+
+var menu = new Vue({
+    el: '#menu',
+    data: {
+        isActive: true,
+        module: new __WEBPACK_IMPORTED_MODULE_0__menuModule__["default"]()
+    },
+    methods: {
+        toggleMenuLink: function toggleMenuLink(event) {
+
+            this.module.toggleMenuLink();
+        },
+        goToRoute: function goToRoute(event) {
+
+            var id = event.target.parentNode.id.replace("menu-", '');
+
+            this.module.toggleActive(event);
+
+            this.module.page(id);
+        }
+    }
+});
+
+/***/ }),
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(42)
+var normalizeComponent = __webpack_require__(44)
 /* script */
-var __vue_script__ = __webpack_require__(43)
+var __vue_script__ = __webpack_require__(45)
 /* template */
-var __vue_template__ = __webpack_require__(44)
+var __vue_template__ = __webpack_require__(46)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -57024,7 +57135,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -57133,7 +57244,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57162,7 +57273,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -57205,57 +57316,47 @@ if (false) {
 }
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 46 */,
-/* 47 */,
 /* 48 */,
 /* 49 */,
-/* 50 */
+/* 50 */,
+/* 51 */,
+/* 52 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var menu = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-    el: '#menu',
-    data: {
-        isActive: false
-    },
-    methods: {
-        toggleMenuLink: function toggleMenuLink(event) {
-            var icon = document.getElementById("menu-icon");
-            var menuItems = document.getElementById("menu-items");
+var Ajax = function () {
+  function Ajax() {
+    _classCallCheck(this, Ajax);
+  }
 
-            icon.classList.toggle("open");
-            icon.title = "Close the menu." === icon.title ? "Open the menu." : "Close the menu.";
+  _createClass(Ajax, [{
+    key: "get",
+    value: function get(url, params) {
 
-            menuItems.classList.toggle("animate-left-cubic");
-            menuItems.style.gridColumn = menuItems.style.gridColumn === "1 / auto" ? "3 / auto" : "1 / auto";
-        },
-
-        toggleActive: function toggleActive(event) {
-
-            var items = document.getElementsByClassName('menu-item');
-
-            for (var i = 0; i < items.length; i++) {
-
-                if (items[i].classList.contains('active')) {
-                    items[i].classList.remove('active');
-                }
-            }
-
-            event.target.parentElement.classList.add('active');
-        }
+      return axios.get(url, {
+        params: params
+      }).then(function (response) {
+        return response;
+      }).catch(function (error) {
+        console.log(error);
+      }).then(function () {});
     }
-});
+  }]);
+
+  return Ajax;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (Ajax);
 
 /***/ })
 /******/ ]);

@@ -1,80 +1,88 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+        <!-- Title -->
+        <title>{{ config('app.name') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+        <!-- Stylesheets -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Poppins|Questrial|Raleway" rel="stylesheet">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+    </head>
+    <body>
 
-                    </ul>
+        <div class="grid">
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                @if (Route::has('register'))
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                @endif
-                            </li>
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+            <div class="header">
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                <div class="page-icon"><i class="fas fa-bolt"></i></div>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+                <div class="page-title">
+                    <div class="title">{{ config('app.name') }} Web Solutions</div>
+                    <div class="subtitle">There are no problems, only opportunities.</div>
                 </div>
             </div>
-        </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
+            <div class="menu" id="menu">
+
+                <div class="link" id="menu-link">
+
+                    <div class="icon" id="menu-icon" v-on:click="toggleMenuLink" title="Open the menu.">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="items" id="menu-items">
+                    <div class="item menu-item active" id="menu-home" v-on:click="goToRoute">
+                        <div class="icon"><i class="fas fa-home"></i></div>
+                        <div class="text">Home</div>
+                    </div>
+                    <div class="item menu-item" id="menu-demo" v-on:click="goToRoute">
+                        <div class="icon"><i class="fas fa-play"></i></div>
+                        <div class="text">Demo</div>
+                    </div>
+                    <div class="item menu-item" id="menu-about" v-on:click="goToRoute">
+                        <div class="icon"><i class="fas fa-user-circle"></i></div>
+                        <div class="text">About Me</div>
+                    </div>
+                    <div class="item menu-item" id="menu-work" v-on:click="goToRoute">
+                        <div class="icon"><i class="fas fa-briefcase"></i></div>
+                        <div class="text">My Work</div>
+                    </div>
+                    <div class="item menu-item" id="menu-qualities" v-on:click="goToRoute">
+                        <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+                        <div class="text">Qualities</div>
+                    </div>
+                    <div class="item menu-item" id="menu-contact" v-on:click="goToRoute">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div class="text">Contact</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main" id="app">
+
+                @yield('content')
+
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    </body>
 </html>

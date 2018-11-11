@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
 // ->middleware('auth')
 
 Route::get('/listenToBroadcast', function () {
@@ -28,5 +36,3 @@ Route::get('/broadcast', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
