@@ -22,7 +22,7 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins|Questrial|Raleway" rel="stylesheet">
 
     </head>
-    <body>
+    <body data-ng-app="litening">
 
         <div class="grid">
 
@@ -75,8 +75,8 @@
                 </div>
             </div>
 
-            <div class="main" id="app">
-
+            <div class="main" id="app" data-ng-controller="MainController">
+            
                 @yield('content')
 
             </div>

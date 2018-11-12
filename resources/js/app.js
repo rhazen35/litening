@@ -11,6 +11,9 @@ window.Vue = require('vue');
 require('./content/menu/menuModule');
 require('./content/menu/menuVueInstance');
 
+// Main
+require('./controllers/MainController.js');
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -28,3 +31,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
             });
     }
 }); */
+
+var app = angular.module("litening", [])
+    .config(function($interpolateProvider) {
+        $interpolateProvider.startSymbol('{[').endSymbol(']}');
+    });

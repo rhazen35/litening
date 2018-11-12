@@ -1,14 +1,7 @@
-import Ajax from "../../modules/requests/ajax"
-
 /**
  * Menu Module.
  */
 class Menu {
-
-    constructor() {
-
-        this.ajax = new Ajax();
-    }
 
     // Toggle the menu link, opening/closing the menu.
     toggleMenuLink() {

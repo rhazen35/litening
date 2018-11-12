@@ -13880,76 +13880,70 @@ module.exports = Cancel;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_requests_ajax__ = __webpack_require__(52);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-
-
 /**
  * Menu Module.
  */
-
 var Menu = function () {
-    function Menu() {
-        _classCallCheck(this, Menu);
-
-        this.ajax = new __WEBPACK_IMPORTED_MODULE_0__modules_requests_ajax__["a" /* default */]();
-    }
-
-    // Toggle the menu link, opening/closing the menu.
-
-
-    _createClass(Menu, [{
-        key: "toggleMenuLink",
-        value: function toggleMenuLink() {
-
-            var icon = document.getElementById("menu-icon");
-            var menuItems = document.getElementById("menu-items");
-
-            icon.classList.toggle("open");
-            icon.title = "Close the menu." === icon.title ? "Open the menu." : "Close the menu.";
-
-            menuItems.classList.toggle("animate-left-cubic-superfast");
-            menuItems.style.gridColumn = menuItems.style.gridColumn === "1 / auto" ? "3 / auto" : "1 / auto";
+        function Menu() {
+                _classCallCheck(this, Menu);
         }
 
-        // Toggle the menu activa state, changing the appearance of the menu item.
+        _createClass(Menu, [{
+                key: "toggleMenuLink",
 
-    }, {
-        key: "toggleActive",
-        value: function toggleActive(event) {
 
-            var items = document.getElementsByClassName('menu-item');
+                // Toggle the menu link, opening/closing the menu.
+                value: function toggleMenuLink() {
 
-            for (var i = 0; i < items.length; i++) {
+                        var icon = document.getElementById("menu-icon");
+                        var menuItems = document.getElementById("menu-items");
 
-                if (items[i].classList.contains('active')) {
-                    items[i].classList.remove('active');
+                        icon.classList.toggle("open");
+                        icon.title = "Close the menu." === icon.title ? "Open the menu." : "Close the menu.";
+
+                        menuItems.classList.toggle("animate-left-cubic-superfast");
+                        menuItems.style.gridColumn = menuItems.style.gridColumn === "1 / auto" ? "3 / auto" : "1 / auto";
                 }
-            }
 
-            event.target.parentElement.classList.add('active');
-        }
-    }, {
-        key: "page",
-        value: function page(_page) {
+                // Toggle the menu activa state, changing the appearance of the menu item.
 
-            var url = '/' + _page;
+        }, {
+                key: "toggleActive",
+                value: function toggleActive(event) {
 
-            axios.get(url).then(function (response) {
-                document.getElementById('app').innerHTML = response.data;
+                        var items = document.getElementsByClassName('menu-item');
 
-                history.pushState(null, null, url);
-                history.replaceState(null, null, url);
-            }).catch(function (error) {
-                console.log(error);
-            }).then(function () {});
-        }
-    }]);
+                        for (var i = 0; i < items.length; i++) {
 
-    return Menu;
+                                if (items[i].classList.contains('active')) {
+                                        items[i].classList.remove('active');
+                                }
+                        }
+
+                        event.target.parentElement.classList.add('active');
+                }
+        }, {
+                key: "page",
+                value: function page(_page) {
+
+                        var url = '/' + _page;
+
+                        axios.get(url).then(function (response) {
+                                document.getElementById('app').innerHTML = response.data;
+
+                                history.pushState(null, null, url);
+                                history.replaceState(null, null, url);
+                        }).catch(function (error) {
+                                console.log(error);
+                        }).then(function () {});
+                }
+        }]);
+
+        return Menu;
 }();
 
 /* harmony default export */ __webpack_exports__["default"] = (Menu);
@@ -13959,7 +13953,7 @@ var Menu = function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(47);
+module.exports = __webpack_require__(49);
 
 
 /***/ }),
@@ -13977,7 +13971,10 @@ window.Vue = __webpack_require__(39);
 
 // Content
 __webpack_require__(11);
-__webpack_require__(42);
+__webpack_require__(43);
+
+// Main
+__webpack_require__(44);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -13985,7 +13982,7 @@ __webpack_require__(42);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(43));
+Vue.component('example-component', __webpack_require__(45));
 
 /* var app = new Vue({
     el: '#app',
@@ -13996,6 +13993,10 @@ Vue.component('example-component', __webpack_require__(43));
             });
     }
 }); */
+
+var app = angular.module("litening", []).config(function ($interpolateProvider) {
+    $interpolateProvider.startSymbol('{[').endSymbol(']}');
+});
 
 /***/ }),
 /* 14 */
@@ -57057,7 +57058,8 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
 
 /***/ }),
-/* 42 */
+/* 42 */,
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57088,15 +57090,23 @@ var menu = new Vue({
 });
 
 /***/ }),
-/* 43 */
+/* 44 */
+/***/ (function(module, exports) {
+
+app.controller('MainController', ['$scope', function ($scope) {
+    $scope.title = '123';
+}]);
+
+/***/ }),
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(44)
+var normalizeComponent = __webpack_require__(46)
 /* script */
-var __vue_script__ = __webpack_require__(45)
+var __vue_script__ = __webpack_require__(47)
 /* template */
-var __vue_template__ = __webpack_require__(46)
+var __vue_template__ = __webpack_require__(48)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -57135,7 +57145,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -57244,7 +57254,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57273,7 +57283,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -57316,47 +57326,10 @@ if (false) {
 }
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Ajax = function () {
-  function Ajax() {
-    _classCallCheck(this, Ajax);
-  }
-
-  _createClass(Ajax, [{
-    key: "get",
-    value: function get(url, params) {
-
-      return axios.get(url, {
-        params: params
-      }).then(function (response) {
-        return response;
-      }).catch(function (error) {
-        console.log(error);
-      }).then(function () {});
-    }
-  }]);
-
-  return Ajax;
-}();
-
-/* harmony default export */ __webpack_exports__["a"] = (Ajax);
 
 /***/ })
 /******/ ]);

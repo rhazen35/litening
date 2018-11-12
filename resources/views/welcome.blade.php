@@ -23,7 +23,7 @@
     <div class="title">What I work with.</div>
     <div class="text">
         <p>
-            PHP 7.2, Javascript, ECMAScript 6 Modules, Ajax. CSS3, SASS and much, much more!
+            PHP 7.2, Javascript, ECMAScript 6 Modules, Ajax, AngularJs, CSS3, SASS and much, much more!
         </p>
         <div class="link" id="mywork" title="Go to My Work.">My Work</div>
     </div>
