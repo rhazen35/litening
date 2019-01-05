@@ -13,19 +13,8 @@
 
 use App\Events\EventTrigger;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/home', function () {
-    return view('home');
-});
-
-Route::get('/about', function () {
-    return view('about');
-});
-
-// ->middleware('auth')
+Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
 Route::get('/listenToBroadcast', function () {
     return view('eventListener');

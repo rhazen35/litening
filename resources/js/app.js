@@ -7,13 +7,6 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-// Content
-require('./content/menu/menuModule');
-require('./content/menu/menuVueInstance');
-
-// Main
-require('./controllers/MainController.js');
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -22,7 +15,7 @@ require('./controllers/MainController.js');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-/* var app = new Vue({
+var app = new Vue({
     el: '#app',
     created() {
         window.Echo.channel('channel-litening')
@@ -30,9 +23,4 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
                 alert('event triggered succesfully!');
             });
     }
-}); */
-
-var app = angular.module("litening", [])
-    .config(function($interpolateProvider) {
-        $interpolateProvider.startSymbol('{[').endSymbol(']}');
-    });
+});

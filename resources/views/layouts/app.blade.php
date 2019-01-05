@@ -22,65 +22,9 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins|Questrial|Raleway" rel="stylesheet">
 
     </head>
-    <body data-ng-app="litening">
+    <body>
 
-        <div class="grid">
-
-            <div class="header">
-
-                <div class="page-icon"><i class="fas fa-bolt"></i></div>
-
-                <div class="page-title">
-                    <div class="title">{{ config('app.name') }} Web Solutions</div>
-                    <div class="subtitle">There are no problems, only opportunities.</div>
-                </div>
-            </div>
-
-            <div class="menu" id="menu">
-
-                <div class="link" id="menu-link">
-
-                    <div class="icon" id="menu-icon" v-on:click="toggleMenuLink" title="Open the menu.">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-
-                <div class="items" id="menu-items">
-                    <div class="item menu-item active" id="menu-home" v-on:click="goToRoute">
-                        <div class="icon"><i class="fas fa-home"></i></div>
-                        <div class="text">Home</div>
-                    </div>
-                    <div class="item menu-item" id="menu-demo" v-on:click="goToRoute">
-                        <div class="icon"><i class="fas fa-play"></i></div>
-                        <div class="text">Demo</div>
-                    </div>
-                    <div class="item menu-item" id="menu-about" v-on:click="goToRoute">
-                        <div class="icon"><i class="fas fa-user-circle"></i></div>
-                        <div class="text">About Me</div>
-                    </div>
-                    <div class="item menu-item" id="menu-work" v-on:click="goToRoute">
-                        <div class="icon"><i class="fas fa-briefcase"></i></div>
-                        <div class="text">My Work</div>
-                    </div>
-                    <div class="item menu-item" id="menu-qualities" v-on:click="goToRoute">
-                        <div class="icon"><i class="fas fa-clipboard-list"></i></div>
-                        <div class="text">Qualities</div>
-                    </div>
-                    <div class="item menu-item" id="menu-contact" v-on:click="goToRoute">
-                        <div class="icon"><i class="fas fa-envelope"></i></div>
-                        <div class="text">Contact</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="main" id="app" data-ng-controller="MainController">
-            
-                @yield('content')
-
-            </div>
-        </div>
+        @yield('content')
 
         <!-- Scripts -->
         <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>

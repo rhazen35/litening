@@ -20,11 +20,10 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "angular": "^1.7.5",
-        "angular-route": "^1.7.5",
         "gulp": "^4.0.0",
         "laravel-echo": "^1.4.0",
         "pusher-js": "^4.3.1",
-        "vue-router": "^3.0.1"
+        "vue-router": "^3.0.1",
+        "webpack-dev-server": "^3.1.14"
     }
 }
